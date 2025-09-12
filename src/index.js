@@ -1,1 +1,3 @@
-console.log(":D")
+import station from "./weatherStation.js";
+
+window.station = station;
