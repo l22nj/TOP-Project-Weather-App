@@ -11,7 +11,7 @@ const textListCurrentParameters = [
 const weatherDisplayBox = document.getElementById('weather-display-box')
 
 const WeatherDisplayer = function(station) {
-    function makeWeatherBox() {
+    function makeWeatherBox(weatherObj) {
         const box = document.createElement("div");
         box.classList.add("weatherbox");
 
@@ -24,12 +24,11 @@ const WeatherDisplayer = function(station) {
             parameter.classList.add("parameter");
             parameter.classList.add(currentParameters[i]);
             parameter.innerText = textListCurrentParameters[i];
-            parameter.innerText += ":D";
             box.appendChild(parameter);
         }
         weatherDisplayBox.appendChild(box);
     }
-    // ylejaanud eraldi current, day/hour tulevad makeWeatherBoxi põhjal
+
     function clear() {
         weatherDisplayBox.innerHTML = "";
     }
@@ -37,13 +36,3 @@ const WeatherDisplayer = function(station) {
 }
 
 export { WeatherDisplayer };
-
-// const currentParameters = [
-//     "cloudcover",
-//     "temp",
-//     "humidity",
-//     "winddir",
-//     "windspeed",
-//     "icon",
-//     "datetime",
-// ]

@@ -11,10 +11,12 @@ class WeatherStation {
         this.getter = ApiGetter(this);
         this.display = WeatherDisplayer(this);
     }
-    show() {
+    log() {
+        console.log("working weatherObject:");
         console.log(this.currentWeatherObject);
     }
-    showAPI() {
+    logAPI() {
+        console.log("working weather API:");
         console.log(this.currentAPI);
     }
     async getWeather(location) {
@@ -26,10 +28,16 @@ class WeatherStation {
             this.currentWeatherObject = weatherObject;
             console.log("Done!");
             this.lastRequestFailed = false;
+            this.logAPI();
+            this.log();
         } catch (error) {
             console.log("Failed!");
             this.lastRequestFailed = true;
         }
+    }
+    async newWeather(location) {
+        await this.getWeather(location);
+        this.display.makeWeatherBox();
     }
 }
 

@@ -1,3 +1,1 @@
-import station from "./weatherStation.js";
-
-window.station = station;
+import "./input.js";
